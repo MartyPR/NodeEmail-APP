@@ -21,8 +21,16 @@ app.post("/send-email", async (req, res) => {
   const { email, message } = req.body;
   try {
     sendEmail(email, message);
+    res.render("email-form", {
+      status: "success",
+      message: "Email sent successfully",
+    });
   } catch (error) {
     console.error(error);
+    res.render("email-form", {
+        status: "error",
+        message: "Error sending email",
+      });
   }
 });
 
