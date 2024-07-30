@@ -8,11 +8,11 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 //!pass the data from form;
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 
 //route to render email form
-app.get('/',(req,res)=>{
-    res.render();
-})
+app.get("/", (req, res) => {
+  res.render('email-form');
+});
 
 app.listen(PORT, console.log(`The server is running ${PORT}`));
